@@ -1,0 +1,49 @@
+com.bank.management.system
+   - Application.java
+   - @SpringbootApplication
+   - write main method.
+
+com.bank.management.system
+	- RegistrationController.java
+	    - register() - post request, Successfully Registered.
+	    	- First Name, Last Name, PAN(Username) ,Password, Email Address, Contact No, DOB.
+	    	- Validation failed message.
+	- LoginController.java
+		- login() - post request, user name, password, Logined successfully.
+		- basic authentication.
+	- AccountController.java
+		- saveAccount() - POST, Account is saved successfully.
+		- getAllAccounts() - GET, get all the user accounts
+		- getAllAccountsForUser(userId)
+		- getAccount(id) - GET, Account is not found.
+		- getAccountForPAN(panId)- GET
+		- updateAccount(id) - POST, update the account using id.
+		- deleteAccount(id) - DELETE, pass id, if id not there, Account id is not exist.
+	
+	    - Validation for duplicate account, account number should be 10 digit, it should not accept ?,<>
+	 - MutualFundController.java
+	    - saveFund() - POST
+	    - getAllFunds() - GET
+	    - getAllFundsForUser(userId) - GET
+	    - getAllFundsForAccount(account Id) - GET
+	    - getFund(fundId) - GET
+	    - updateFund(fundId) - POST
+	    - deleteFund(fundId) - DELETE
+	    
+	  Service class:
+	  ---------------
+	  - RegistrationService.java, RegistrationServiceImpl
+	     register()
+		Similarly for all controller create service interface, service implementation and all methdos
+		
+	 Entity Class:
+	 --------------
+	 	- Cretate three tables. USER, ACCOUNT, MUTUAL_FUND tables.
+	   - User.java - Registration and login
+	   - Account.java, userId, accountId
+	   - MutulFund.java, acoountId
+	   
+	   one user can have multiple account - User Entity - @OneToMany, Account Entity - @ManyToOne
+	   one mutual fund can have multiple Accounts - Mutual Fund Entity - @OneToMany   -- Account Entity @ManyToOne
+	   
+	   
